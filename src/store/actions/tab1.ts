@@ -1,5 +1,12 @@
+
+
 export const addValueToWallet = (value: number) => ({
-    type: 'ADD',
+    type: <const>'ADD',
+    value
+})
+
+export const subValueFromWallet = (value: number) => ({
+    type: <const>'SUB',
     value
 })
 

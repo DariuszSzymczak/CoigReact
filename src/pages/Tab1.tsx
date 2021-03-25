@@ -16,7 +16,7 @@ export type Tab1State ={
 }
 class Tab1 extends React.Component<Tab1Props, Tab1State>  {
 
-addButtonHandler(){
+addButtonHandler = () => {
   let oldWalletValue = this.props.walletValue;
   let newWalletValue = oldWalletValue + 1;
   this.props.addValueToWallet(newWalletValue);
