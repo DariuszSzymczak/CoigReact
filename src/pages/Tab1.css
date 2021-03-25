@@ -10,7 +10,7 @@
 
 .ha1{
     display: block;
-    width:60px;
+    min-width:60px;
     margin: auto;
     text-align: center;
     padding: 10px;

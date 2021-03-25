@@ -3,7 +3,7 @@ export type tab1StoreType = {
 }
 
 export const tab1Store = {
-    value: 0,
+    value: 100,
 }
 
 export type tab1ReducerAction = {
@@ -11,7 +11,7 @@ export type tab1ReducerAction = {
     value: number,
 }
 
-export const tab1Reducer = (store: tab1StoreType, action: tab1ReducerAction) => {
+export const tab1Reducer = (store: tab1StoreType = tab1Store, action: tab1ReducerAction) => {
 
     switch(action.type) {
 

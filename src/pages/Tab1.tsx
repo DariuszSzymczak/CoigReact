@@ -1,12 +1,29 @@
 import { IonButton, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
 import { connect } from 'react-redux';
-import ExploreContainer from '../components/ExploreContainer';
 import { Reducers } from '../store/reducers';
 import './Tab1.css';
 import { addValueToWallet } from './../store/actions/tab1'
-const Tab1: React.FC = () => {
-  return (
+import { tab1ReducerAction } from '../store/reducers/tab1';
+
+export type Tab1Props= {
+  walletValue : number,
+  addValueToWallet : (value : number) => tab1ReducerAction
+}
+
+export type Tab1State ={
+
+}
+class Tab1 extends React.Component<Tab1Props, Tab1State>  {
+
+addButtonHandler(){
+  let oldWalletValue = this.props.walletValue;
+  let newWalletValue = oldWalletValue + 1;
+  this.props.addValueToWallet(newWalletValue);
+}
+
+render(){
+  return(
     <IonPage>
       <IonHeader>
         <IonToolbar>
@@ -15,19 +32,21 @@ const Tab1: React.FC = () => {
       </IonHeader>
       <IonContent fullscreen>
         <div className="center">
-          <h1 className="ha1">0</h1>
-          <IonButton color="primary" className="bt1">+</IonButton>
+          <h1 className="ha1">{this.props.walletValue}</h1>
+          <IonButton color="primary" className="bt1" onClick={this.addButtonHandler}>+</IonButton>
         </div>
 
       </IonContent>
-    </IonPage>
-  );
-};
+    </IonPage >
+  )
+}
 
-const state = (state : Reducers) => ({
-  walletValue : state.tab1Reducer.value
+}
+
+const state = (state: Reducers) => ({
+  walletValue: state.tab1Reducer.value
 })
 
-export default connect(state,{
+export default connect(state, {
   addValueToWallet
 })(Tab1);
