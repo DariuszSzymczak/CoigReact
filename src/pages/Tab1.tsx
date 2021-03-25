@@ -2,8 +2,9 @@ import { IonButton, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from 
 import React from 'react';
 import { connect } from 'react-redux';
 import ExploreContainer from '../components/ExploreContainer';
+import { Reducers } from '../store/reducers';
 import './Tab1.css';
-
+import { addValueToWallet } from './../store/actions/tab1'
 const Tab1: React.FC = () => {
   return (
     <IonPage>
@@ -23,8 +24,10 @@ const Tab1: React.FC = () => {
   );
 };
 
-// const state = {
-//   walletValue: 
-// }
+const state = (state : Reducers) => ({
+  walletValue : state.tab1Reducer.value
+})
 
-export default Tab1;
+export default connect(state,{
+  addValueToWallet
+})(Tab1);
