@@ -1,9 +1,14 @@
-import { tab1ReducerAction, tab1StoreType } from "../actions/tab1";
+export type tab1StoreType = {
+    value: number
+}
 
 export const tab1Store = {
-
     value: 0,
+}
 
+export type tab1ReducerAction = {
+    type: 'ADD',
+    value: number,
 }
 
 export const tab1Reducer = (store: tab1StoreType, action: tab1ReducerAction) => {
