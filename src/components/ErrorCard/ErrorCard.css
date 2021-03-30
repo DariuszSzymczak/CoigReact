@@ -1,0 +1,4 @@
+.error-card ion-card-header {
+  display: flex;
+  justify-content: center;
+}
